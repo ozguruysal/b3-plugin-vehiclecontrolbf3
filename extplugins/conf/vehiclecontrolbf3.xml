@@ -8,5 +8,6 @@
 		not respawn again if vehicle spawn enabled in the config file.
 		-->
 		<map>MP_001</map>
+		<map>MP_003</map>
 	</disable_vehicle_respawn>
 </configuration>

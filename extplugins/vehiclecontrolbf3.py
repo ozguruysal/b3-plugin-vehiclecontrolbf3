@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# PowerAdmin BF3 Plugin for BigBrotherBot(B3) (www.bigbrotherbot.net)
+# Vehicle Control BF3 Plugin for BigBrotherBot(B3) (www.bigbrotherbot.net)
 # Copyright (C) 2011 Freelander (freelander@fps-gamer.net)
 # 
 # This program is free software; you can redistribute it and/or modify

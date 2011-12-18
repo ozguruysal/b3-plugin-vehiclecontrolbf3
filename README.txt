@@ -1,4 +1,4 @@
-Vehiclecontrolbf3 plugin for Big Brother Bot (www.bigbrotherbot.net)
+Vehicle Control BF3 Plugin for BigBrotherBot (www.bigbrotherbot.net)
 ===================================================================
 
 Author: Freelander - freelander@bigbrotherbot.net
@@ -32,4 +32,4 @@ Installation
 Support
 -------
 
-see the B3 forums http://forum.bigbrotherbot.net/releases/
+see the B3 forums http://forum.bigbrotherbot.net/releases/vehicle-control-plugin-for-bf3/
