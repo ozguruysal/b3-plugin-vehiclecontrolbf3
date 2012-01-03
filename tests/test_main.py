@@ -26,6 +26,16 @@ p = Vehiclecontrolbf3Plugin(fakeConsole, conf)
 p.onLoadConfig()
 p.onStartup()
 
+def my_getNextMap():
+    return nextmap
+
+def my_getHardName(mapname):
+    return "MP_007"
+
+fakeConsole.getNextMap = my_getNextMap
+fakeConsole.getHardName = my_getHardName
+
+nextmap = "Caspian Border (Squad Deathmatch)"
 p._delay = 1
 
 print "----------------------------Should disable vehicles"
@@ -34,6 +44,5 @@ fakeConsole.queueEvent(b3.events.Event(b3.events.EVT_GAME_ROUND_START, None))
 
 time.sleep(1)
 
-print "----------------------------Shouldn't do anything"
-fakeConsole.game.mapName = "MP_007"
-fakeConsole.queueEvent(b3.events.Event(b3.events.EVT_GAME_ROUND_START, None))
+print "----------------------------Should enable vehicles"
+fakeConsole.queueEvent(b3.events.Event(b3.events.EVT_GAME_ROUND_END, None))

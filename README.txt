@@ -20,6 +20,9 @@ Changelog
  * 17.12.2011 - v1.0
     - Initial release
 
+ * 03.01.2012 - v1.0.1
+    - Bug fix: enable vehicles again if map is not in the list
+
 Installation
 ------------
 

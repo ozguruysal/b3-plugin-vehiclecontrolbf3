@@ -20,9 +20,10 @@
 #
 # CHANGELOG
 #
-# 1.0 - Initial release
+# 1.0   - Initial release
+# 1.0.1 - Bug fix for enabling vehicles again if not in disable list
 
-__version__ = '1.0'
+__version__ = '1.0.1'
 __author__  = 'Freelander'
 
 import b3
@@ -57,6 +58,7 @@ class Vehiclecontrolbf3Plugin(Plugin):
         """
         # Register our events
         self.registerEvent(b3.events.EVT_GAME_ROUND_START)
+        self.registerEvent(b3.events.EVT_GAME_ROUND_END)
 
     def onEvent(self, event):
         """\
@@ -64,6 +66,8 @@ class Vehiclecontrolbf3Plugin(Plugin):
         """
         if event.type == b3.events.EVT_GAME_ROUND_START:
             self._check_vehicles()
+        elif event.type == b3.events.EVT_GAME_ROUND_END:
+            self._check_vehicles_next_map()
 
 ################################################################################################################
 #
@@ -101,3 +105,17 @@ class Vehiclecontrolbf3Plugin(Plugin):
             self.console.write(('vars.vehicleSpawnAllowed', 'false'))
             self.debug('Vehicle respawn disabled')
             self.console.say(self.info_message)
+
+    def _check_vehicles_next_map(self):
+        '''
+        checks and enables vehicles for next map if not in maplist
+        '''
+        next_map = self.console.getNextMap()
+        p = next_map.split('(')
+        next_mapName = p[0].strip()
+        next_mapName = self.console.getHardName(next_mapName)
+
+        if next_mapName not in self._disable_vehicle_respawn_maps:
+            self.debug('Next map (%s) is not in disable_vehicle_respawn_maps, enabling vehicles' % next_mapName)
+            self.console.write(('vars.vehicleSpawnAllowed', 'true'))
+            self.debug('Vehicle respawn enabled')
