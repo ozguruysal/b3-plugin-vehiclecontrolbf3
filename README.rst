@@ -1,6 +1,6 @@
-====================================================================
-Vehicle Control BF3 Plugin for BigBrotherBot (www.bigbrotherbot.net)
-====================================================================
+============================================
+Vehicle Control BF3 Plugin for BigBrotherBot
+============================================
 
 http://www.bigbrotherbot.net
 
@@ -23,7 +23,7 @@ Changelog
   - Bug fix: enable vehicles again if map is not in the list
 
 * 21.06.2012 - v1.0.2
-  - Ability to skip disabling vehicles on selected gametypes
+  - Ability to skip disabling vehicle respawn on selected gametypes
 
 Installation
 ------------
