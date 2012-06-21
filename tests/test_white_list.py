@@ -12,37 +12,31 @@ from b3.config import XmlConfigParser
 conf = XmlConfigParser()
 conf.loadFromString("""
 <configuration plugin="vehiclecontrolbf3">
+    <settings name="messages">
+        <set name="no_vehicle_respawn">Combat vehicles will NOT respawn on this map! Use them wisely.</set>
+    </settings>
     <disable_vehicle_respawn>
         <map>MP_001</map>
-        <map>MP_003  </map>
+        <map>MP_003</map>
     </disable_vehicle_respawn>
+    <whitelist_gametypes>
+        <gametype>ConquestLarge0</gametype>
+        <gametype>ConquestSmall0</gametype>
+        <gametype>ConquestAssaultLarge0</gametype>
+        <gametype>ConquestAssaultSmall0</gametype>
+        <gametype>ConquestAssaultSmall1</gametype>
+    </whitelist_gametypes>
 </configuration>
 """)
 # make B3 think it has a config file on the filesystem
 conf.fileName = os.path.join(os.path.dirname(__file__), '../extplugins/conf/vehiclecontrolbf3.xml')
 
-
 p = Vehiclecontrolbf3Plugin(fakeConsole, conf)
 p.onLoadConfig()
 p.onStartup()
 
-def my_getNextMap():
-    return nextmap
+fakeConsole.game.gameType = 'ConquestLarge0'
 
-def my_getHardName(mapname):
-    return "MP_007"
-
-fakeConsole.getNextMap = my_getNextMap
-fakeConsole.getHardName = my_getHardName
-
-nextmap = "Caspian Border (Squad Deathmatch)"
-p._delay = 1
-
-print "----------------------------Should disable vehicles"
+print "----------------------------Should skip disabling vehicles"
 fakeConsole.game.mapName = "MP_003"
 fakeConsole.queueEvent(b3.events.Event(b3.events.EVT_GAME_ROUND_START, None))
-
-time.sleep(1)
-
-print "----------------------------Should enable vehicles"
-fakeConsole.queueEvent(b3.events.Event(b3.events.EVT_GAME_ROUND_END, None))

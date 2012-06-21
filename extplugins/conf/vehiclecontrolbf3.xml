@@ -10,4 +10,12 @@
 		<map>MP_001</map>
 		<map>MP_003</map>
 	</disable_vehicle_respawn>
+	<whitelist_gametypes>
+		<!-- List gametypes below if you want to disable vehicle control plugin for some game types -->
+		<gametype>ConquestLarge0</gametype>
+		<gametype>ConquestSmall0</gametype>
+		<gametype>ConquestAssaultLarge0</gametype>
+		<gametype>ConquestAssaultSmall0</gametype>
+		<gametype>ConquestAssaultSmall1</gametype>
+	</whitelist_gametypes>
 </configuration>
